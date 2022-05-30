@@ -1,0 +1,42 @@
+openapi: '3.0.2'
+info:
+  title: Parameter
+  version: '1.0'
+servers:
+  - url: https://api.flexcd.test/v1/
+
+
+components:
+  schemas:
+    Parameter:
+      type: object
+      required:
+        - "owner"
+        - "name"
+        - "default"
+        - "description"
+      properties:
+        name:
+          type: string
+        description:
+          type: string 
+        default:
+          type: string
+        owner:
+          type: string
+
+paths:
+  /parameter:
+    post:
+      operationId: AddParameter
+      description: >- 
+        Add a new paremeter for a specific command known as owner 
+      summary: Add parameter
+      requestBody:
+        content:
+          application/json:
+            schema: 
+              $ref: "#/components/schemas/Parameter"
+      responses:
+        '200':
+          description: OK
