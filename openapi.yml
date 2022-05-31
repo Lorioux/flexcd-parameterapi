@@ -11,19 +11,27 @@ components:
     Parameter:
       type: object
       required:
-        - "owner"
+        - "commandId"
+        - "workflowId"
+        - "id"
         - "name"
         - "default"
         - "description"
       properties:
+        id:
+          type: string
         name:
           type: string
         description:
           type: string 
         default:
           type: string
-        owner:
+        commandId:
           type: string
+        workflowId: 
+          type: string
+    Response:
+      type: string
 
 paths:
   /parameter:
@@ -40,3 +48,43 @@ paths:
       responses:
         '200':
           description: OK
+    get:
+      operationId: GetParameter
+      description: >-
+        Retrie a parameter by Id 
+      parameters:
+        - name: id 
+          in: query
+          required: true
+          schema: 
+            type: string 
+      responses:
+        '200':
+          description: Parameter data
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Response"
+  /parameter/{workflowId}/{Id}:
+    get: 
+      operationId: GetParameterById
+      description: >- 
+        Retrieve the parameter by workflow Id and parameter Id
+      parameters:
+        - name: workflowId
+          in: path
+          required: true
+          schema: 
+            type: string
+        - name: Id
+          in: path 
+          required: true
+          schema: 
+            type: string
+      responses:
+        '200':
+          description: Parameter Value 
+          content:
+            application/json:
+              schema: 
+                $ref: "#/components/schemas/Response"
