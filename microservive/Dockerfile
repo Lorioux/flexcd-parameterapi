@@ -1,14 +1,15 @@
-FROM golang:1.10 AS build
+FROM golang:buster AS build
 WORKDIR /go/src
 COPY go ./go
 COPY main.go .
+COPY go.mod .
 
 ENV CGO_ENABLED=0
-RUN go get -d -v ./...
+RUN go get -t -x 
 
 RUN go build -a -installsuffix cgo -o openapi .
 
 FROM scratch AS runtime
 COPY --from=build /go/src/openapi ./
-EXPOSE 8080/tcp
+EXPOSE 80/tcp
 ENTRYPOINT ["./openapi"]
