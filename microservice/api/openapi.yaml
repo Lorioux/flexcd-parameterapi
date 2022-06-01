@@ -1,0 +1,97 @@
+openapi: 3.0.2
+info:
+  title: Parameter
+  version: "1.0"
+servers:
+- url: https://api.flexcd.test/v1/
+paths:
+  /parameter:
+    get:
+      description: 'Retrie a parameter by Id '
+      operationId: GetParameter
+      parameters:
+      - explode: true
+        in: query
+        name: id
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+          description: Parameter data
+    post:
+      description: 'Add a new paremeter for a specific command known as owner '
+      operationId: AddParameter
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Parameter'
+      responses:
+        "200":
+          description: OK
+      summary: Add parameter
+  /parameter/{workflowId}/{Id}:
+    get:
+      description: Retrieve the parameter by workflow Id and parameter Id
+      operationId: GetParameterById
+      parameters:
+      - explode: false
+        in: path
+        name: workflowId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: Id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+          description: Parameter Value
+components:
+  schemas:
+    Parameter:
+      example:
+        default: default
+        name: name
+        description: description
+        id: id
+        commandId: commandId
+        workflowId: workflowId
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        default:
+          type: string
+        commandId:
+          type: string
+        workflowId:
+          type: string
+      required:
+      - commandId
+      - default
+      - description
+      - id
+      - name
+      - workflowId
+      type: object
+    Response:
+      type: string
