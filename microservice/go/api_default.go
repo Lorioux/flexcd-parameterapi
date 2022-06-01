@@ -10,120 +10,22 @@
 package openapi
 
 import (
-	"encoding/json"
 	"net/http"
-	"strings"
 
-	"github.com/gorilla/mux"
+	"github.com/gin-gonic/gin"
 )
 
-// DefaultApiController binds http requests to an api service and writes the service results to the http response
-type DefaultApiController struct {
-	service DefaultApiServicer
-	errorHandler ErrorHandler
-}
-
-// DefaultApiOption for how the controller is set up.
-type DefaultApiOption func(*DefaultApiController)
-
-// WithDefaultApiErrorHandler inject ErrorHandler into controller
-func WithDefaultApiErrorHandler(h ErrorHandler) DefaultApiOption {
-	return func(c *DefaultApiController) {
-		c.errorHandler = h
-	}
-}
-
-// NewDefaultApiController creates a default api controller
-func NewDefaultApiController(s DefaultApiServicer, opts ...DefaultApiOption) Router {
-	controller := &DefaultApiController{
-		service:      s,
-		errorHandler: DefaultErrorHandler,
-	}
-
-	for _, opt := range opts {
-		opt(controller)
-	}
-
-	return controller
-}
-
-// Routes returns all the api routes for the DefaultApiController
-func (c *DefaultApiController) Routes() Routes {
-	return Routes{ 
-		{
-			"AddParameter",
-			strings.ToUpper("Post"),
-			"/v1/parameter",
-			c.AddParameter,
-		},
-		{
-			"GetParameter",
-			strings.ToUpper("Get"),
-			"/v1/parameter",
-			c.GetParameter,
-		},
-		{
-			"GetParameterById",
-			strings.ToUpper("Get"),
-			"/v1/parameter/{workflowId}/{Id}",
-			c.GetParameterById,
-		},
-	}
-}
-
 // AddParameter - Add parameter
-func (c *DefaultApiController) AddParameter(w http.ResponseWriter, r *http.Request) {
-	parameterParam := Parameter{}
-	d := json.NewDecoder(r.Body)
-	d.DisallowUnknownFields()
-	if err := d.Decode(&parameterParam); err != nil {
-		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
-		return
-	}
-	if err := AssertParameterRequired(parameterParam); err != nil {
-		c.errorHandler(w, r, err, nil)
-		return
-	}
-	result, err := c.service.AddParameter(r.Context(), parameterParam)
-	// If an error occurred, encode the error with the status code
-	if err != nil {
-		c.errorHandler(w, r, err, &result)
-		return
-	}
-	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
-
+func AddParameter(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{})
 }
 
 // GetParameter - 
-func (c *DefaultApiController) GetParameter(w http.ResponseWriter, r *http.Request) {
-	query := r.URL.Query()
-	idParam := query.Get("id")
-	result, err := c.service.GetParameter(r.Context(), idParam)
-	// If an error occurred, encode the error with the status code
-	if err != nil {
-		c.errorHandler(w, r, err, &result)
-		return
-	}
-	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
-
+func GetParameter(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{})
 }
 
 // GetParameterById - 
-func (c *DefaultApiController) GetParameterById(w http.ResponseWriter, r *http.Request) {
-	params := mux.Vars(r)
-	workflowIdParam := params["workflowId"]
-	
-	idParam := params["Id"]
-	
-	result, err := c.service.GetParameterById(r.Context(), workflowIdParam, idParam)
-	// If an error occurred, encode the error with the status code
-	if err != nil {
-		c.errorHandler(w, r, err, &result)
-		return
-	}
-	// If no error, encode the body and the result code
-	EncodeJSONResponse(result.Body, &result.Code, w)
-
+func GetParameterById(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{})
 }

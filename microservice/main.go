@@ -11,18 +11,21 @@ package main
 
 import (
 	"log"
-	"net/http"
 
-	openapi "github.com/GIT_USER_ID/GIT_REPO_ID/go"
+	// WARNING!
+	// Change this to a fully-qualified import path
+	// once you place this file into your project.
+	// For example,
+	//
+	//sw "github.com/GIT_USER_ID/GIT_REPO_ID/go"
+	//
+	openapi "flexcd.io/parameterapi/microservice/go"
 )
 
 func main() {
 	log.Printf("Server started")
 
-	DefaultApiService := openapi.NewDefaultApiService()
-	DefaultApiController := openapi.NewDefaultApiController(DefaultApiService)
+	router := openapi.NewRouter()
 
-	router := openapi.NewRouter(DefaultApiController)
-
-	log.Fatal(http.ListenAndServe(":8080", router))
+	log.Fatal(router.Run(":8080"))
 }
