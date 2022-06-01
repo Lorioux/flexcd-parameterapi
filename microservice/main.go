@@ -13,7 +13,7 @@ import (
 	"log"
 	"net/http"
 
-	openapi "github.com/lorioux/flexcd-parameterapi/go"
+	openapi "github.com/GIT_USER_ID/GIT_REPO_ID/go"
 )
 
 func main() {
@@ -24,5 +24,5 @@ func main() {
 
 	router := openapi.NewRouter(DefaultApiController)
 
-	log.Fatal(http.ListenAndServe(":80", router))
+	log.Fatal(http.ListenAndServe(":8080", router))
 }
