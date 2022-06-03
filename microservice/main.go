@@ -10,6 +10,7 @@
 package main
 
 import (
+	"encoding/json"
 	"log"
 
 	// WARNING!
@@ -17,15 +18,23 @@ import (
 	// once you place this file into your project.
 	// For example,
 	//
-	//sw "github.com/GIT_USER_ID/GIT_REPO_ID/go"
+	openapi "parameters/go" //sw "github.com/GIT_USER_ID/GIT_REPO_ID/go"
 	//
-	openapi "flexcd.io/parameterapi/microservice/go"
 )
 
 func main() {
 	log.Printf("Server started")
 
-	router := openapi.NewRouter()
+	// router := openapi.NewRouter()
 
-	log.Fatal(router.Run(":8080"))
+	// log.Fatal(router.Run(":8080"))
+	data := map[string]any{"status": 200, "msg": "Done!"}
+
+	if content, err := json.Marshal(data); err != nil {
+		log.Fatal("MAIN %v", err.Error())
+
+	} else {
+		openapi.HandleCaching("./", "parameters.json", content)
+	}
+
 }
