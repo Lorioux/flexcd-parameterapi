@@ -1,134 +1,153 @@
 <mxfile host="65bd71144e">
     <diagram id="BjxutJ5Hk6y7UahvXRXV" name="Page-1">
-        <mxGraphModel dx="1118" dy="509" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" math="0" shadow="0">
+        <mxGraphModel dx="1940" dy="717" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="3" value="CACHE HANDLING" style="shape=mxgraph.sysml.compState;align=left;verticalAlign=top;spacingTop=-3;spacingLeft=18;strokeWidth=1;recursiveResize=0;fillColor=none;" vertex="1" parent="1">
-                    <mxGeometry x="160" y="130" width="950" height="620" as="geometry"/>
+                <mxCell id="3" value="CACHE HANDLING" style="shape=mxgraph.sysml.compState;align=left;verticalAlign=top;spacingTop=-3;spacingLeft=18;strokeWidth=1;recursiveResize=0;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="80" width="1080" height="680" as="geometry"/>
                 </mxCell>
-                <mxCell id="4" value="" style="shape=ellipse;html=1;fillColor=none;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;" vertex="1" parent="3">
+                <mxCell id="4" value="" style="shape=ellipse;html=1;fillColor=none;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;" parent="3" vertex="1">
                     <mxGeometry x="20" y="70" width="20" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="CHECKING FILE" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;shape=rect;html=1;rounded=1;whiteSpace=wrap;align=center;" vertex="1" parent="3">
-                    <mxGeometry x="160" y="60" width="100" height="40" as="geometry"/>
+                <mxCell id="5" value="CHECKING FILE" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;shape=rect;html=1;rounded=1;whiteSpace=wrap;align=center;" parent="3" vertex="1">
+                    <mxGeometry x="90" y="60" width="100" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="6" value="CREATING FILE" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;shape=rect;html=1;rounded=1;whiteSpace=wrap;align=center;" vertex="1" parent="3">
-                    <mxGeometry x="160" y="200" width="100" height="40" as="geometry"/>
+                <mxCell id="6" value="CREATING FILE" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;shape=rect;html=1;rounded=1;whiteSpace=wrap;align=center;" parent="3" vertex="1">
+                    <mxGeometry x="90" y="200" width="100" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" value="" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;edgeStyle=none;html=1;endArrow=open;endSize=12;" edge="1" parent="3" source="4" target="5">
+                <mxCell id="7" value="" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;edgeStyle=none;html=1;endArrow=open;endSize=12;" parent="3" source="4" target="5" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="8" value="[EXISTS == false]" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;edgeStyle=none;html=1;endArrow=open;endSize=12;" edge="1" parent="3" source="5" target="6">
+                <mxCell id="8" value="CREATE/[EXISTS == false]" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;edgeStyle=none;html=1;endArrow=open;endSize=12;" parent="3" source="5" target="6" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" value="[FILE != nil][FILE]" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=20;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="3" source="10">
-                    <mxGeometry relative="1" as="geometry">
+                <mxCell id="20" value="WRITE/[DATA][FILE != nil]" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=20;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="3" source="10" edge="1">
+                    <mxGeometry x="0.2308" relative="1" as="geometry">
                         <mxPoint x="587" y="80" as="sourcePoint"/>
                         <mxPoint x="627" y="170" as="targetPoint"/>
                         <Array as="points">
                             <mxPoint x="627" y="80"/>
                             <mxPoint x="627" y="130"/>
                         </Array>
+                        <mxPoint y="1" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="10" value="READING FILE" style="whiteSpace=wrap;html=1;fillColor=inherit;strokeColor=inherit;gradientColor=inherit;rounded=1;" vertex="1" parent="3">
+                <mxCell id="10" value="READING FILE" style="whiteSpace=wrap;html=1;fillColor=inherit;strokeColor=inherit;gradientColor=inherit;rounded=1;" parent="3" vertex="1">
                     <mxGeometry x="415" y="50" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="[EXISTS == true]" style="edgeStyle=none;html=1;" edge="1" parent="3" source="5" target="10">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="11" value="READ/[EXISTS == true]" style="edgeStyle=none;html=1;" parent="3" edge="1">
+                    <mxGeometry x="-0.1911" y="10" relative="1" as="geometry">
+                        <mxPoint x="189" y="79.99999999999989" as="sourcePoint"/>
+                        <mxPoint x="414" y="79.99999999999989" as="targetPoint"/>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="13" value="" style="edgeStyle=none;html=1;entryX=0;entryY=0;entryDx=0;entryDy=70;entryPerimeter=0;" edge="1" parent="3" source="6" target="14">
+                <mxCell id="13" value="WRITE/[FILE != nil]" style="edgeStyle=none;html=1;entryX=0;entryY=0;entryDx=0;entryDy=70;entryPerimeter=0;" parent="3" source="6" target="14" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="350" y="185" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="30" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0;exitDx=0;exitDy=260;exitPerimeter=0;" edge="1" parent="3" source="14" target="29">
+                <mxCell id="30" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0;exitDx=0;exitDy=260;exitPerimeter=0;" parent="3" source="14" target="29" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="14" value="WRITEING FILE" style="shape=mxgraph.sysml.compState;align=left;verticalAlign=top;spacingTop=-3;spacingLeft=18;strokeWidth=1;recursiveResize=0;fillColor=none;" vertex="1" parent="3">
-                    <mxGeometry x="350" y="150" width="450" height="440" as="geometry"/>
+                <mxCell id="14" value="WRITING FILE" style="shape=mxgraph.sysml.compState;align=left;verticalAlign=top;spacingTop=-3;spacingLeft=18;strokeWidth=1;recursiveResize=0;fillColor=none;" parent="3" vertex="1">
+                    <mxGeometry x="330" y="150" width="620" height="490" as="geometry"/>
                 </mxCell>
-                <mxCell id="15" value="" style="shape=ellipse;html=1;fillColor=none;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;" vertex="1" parent="14">
-                    <mxGeometry x="20" y="70" width="20" height="20" as="geometry"/>
+                <mxCell id="15" value="" style="shape=ellipse;html=1;fillColor=none;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;" parent="14" vertex="1">
+                    <mxGeometry x="24" y="70" width="20" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="16" value="PROCESSING&amp;nbsp; OLDDATA" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;shape=rect;html=1;rounded=1;whiteSpace=wrap;align=center;" vertex="1" parent="14">
-                    <mxGeometry x="120" y="60" width="100" height="40" as="geometry"/>
+                <mxCell id="16" value="COMPARING DATA" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;shape=rect;html=1;rounded=1;whiteSpace=wrap;align=center;" parent="14" vertex="1">
+                    <mxGeometry x="88" y="60" width="100" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="23" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="14" source="17" target="40">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="230" y="170" as="targetPoint"/>
+                <mxCell id="18" value="" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;edgeStyle=none;html=1;endArrow=open;endSize=12;" parent="14" source="15" target="16" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="MERGE/[DATAITEMKEY == CONTENTID]" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="14" target="33" edge="1">
+                    <mxGeometry x="-0.2154" relative="1" as="geometry">
+                        <mxPoint x="518.1999999999998" y="120.39999999999998" as="targetPoint"/>
+                        <mxPoint x="187" y="80" as="sourcePoint"/>
                         <Array as="points">
-                            <mxPoint x="350" y="190"/>
+                            <mxPoint x="518" y="80"/>
                         </Array>
+                        <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="17" value="PROCESSING NEWDATA" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;shape=rect;html=1;rounded=1;whiteSpace=wrap;align=center;" vertex="1" parent="14">
-                    <mxGeometry x="300" y="60" width="100" height="40" as="geometry"/>
+                <mxCell id="24" value="SAVING DATA" style="whiteSpace=wrap;html=1;fillColor=inherit;strokeColor=inherit;gradientColor=inherit;rounded=1;" parent="14" vertex="1">
+                    <mxGeometry x="302" y="400" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="18" value="" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;edgeStyle=none;html=1;endArrow=open;endSize=12;" edge="1" parent="14" source="15" target="16">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="19" value="" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;edgeStyle=none;html=1;endArrow=open;endSize=12;" edge="1" parent="14" source="16" target="17">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="22" value="" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="14" source="16" target="40">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="170" y="140" as="targetPoint"/>
+                <mxCell id="25" value="COMBINE/&lt;br&gt;[DATAITEMKEY != CONTENTID|| COMPLETE == truel]" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" parent="14" edge="1">
+                    <mxGeometry x="-0.592" y="69" relative="1" as="geometry">
+                        <mxPoint x="132" y="100" as="sourcePoint"/>
+                        <mxPoint x="210" y="250" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="120" y="160"/>
+                            <mxPoint x="120" y="250"/>
+                        </Array>
+                        <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="24" value="SAVING DATA" style="whiteSpace=wrap;html=1;fillColor=inherit;strokeColor=inherit;gradientColor=inherit;rounded=1;" vertex="1" parent="14">
-                    <mxGeometry x="110" y="330" width="120" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="25" value="" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="14" source="40" target="24">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="170" y="280" as="sourcePoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="27" value="" style="edgeStyle=none;html=1;" edge="1" parent="14" source="24" target="28">
+                <mxCell id="27" value="" style="edgeStyle=none;html=1;" parent="14" source="24" target="28" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="310" y="280" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="28" value="" style="shape=mxgraph.sysml.actFinal;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;fillColor=none;" vertex="1" parent="14">
-                    <mxGeometry x="330" y="340" width="40" height="40" as="geometry"/>
+                <mxCell id="28" value="" style="shape=mxgraph.sysml.actFinal;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;fillColor=none;" parent="14" vertex="1">
+                    <mxGeometry x="470" y="410" width="40" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="40" value="H" style="shape=ellipse;html=1;fontSize=18;align=center;fillColor=none;" vertex="1" parent="14">
-                    <mxGeometry x="150" y="170" width="40" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="29" value="" style="shape=mxgraph.sysml.actFinal;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;fillColor=none;" vertex="1" parent="3">
-                    <mxGeometry x="870" y="390" width="40" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="31" value="COMBINIG DATA" style="shape=mxgraph.sysml.compState;align=left;verticalAlign=top;spacingTop=-3;spacingLeft=18;strokeWidth=1;recursiveResize=0;fillColor=none;" vertex="1" parent="3">
-                    <mxGeometry x="30" y="290" width="270" height="300" as="geometry"/>
-                </mxCell>
-                <mxCell id="32" value="" style="shape=ellipse;html=1;fillColor=#000000;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;" vertex="1" parent="31">
-                    <mxGeometry x="20" y="70" width="20" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="33" value="UPDATING OLDDATA" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;shape=rect;html=1;rounded=1;whiteSpace=wrap;align=center;" vertex="1" parent="31">
-                    <mxGeometry x="80" y="60" width="100" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="39" style="edgeStyle=none;html=1;" edge="1" parent="31" source="34" target="33">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="203" y="180" as="sourcePoint"/>
-                        <mxPoint x="203" y="80" as="targetPoint"/>
+                <mxCell id="51" value="CONTINUE/[MERGED]" style="edgeStyle=none;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="14" source="33" target="16" edge="1">
+                    <mxGeometry x="-0.2801" y="-14" relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="223" y="180"/>
-                            <mxPoint x="223" y="80"/>
+                            <mxPoint x="210" y="140"/>
+                        </Array>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="52" value="COMPLETE/[COMBINED == true]" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="14" source="31" target="24" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" style="edgeStyle=none;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0;exitDx=0;exitDy=102.5;exitPerimeter=0;" parent="14" source="31" target="16" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="30" y="283"/>
+                            <mxPoint x="30" y="150"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="34" value="ADDING NEWDATA" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;shape=rect;html=1;rounded=1;whiteSpace=wrap;align=center;" vertex="1" parent="31">
-                    <mxGeometry x="80" y="160" width="100" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="35" value="" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;edgeStyle=none;html=1;endArrow=open;endSize=12;" edge="1" parent="31" source="32" target="33">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="36" value="" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;edgeStyle=none;html=1;endArrow=open;endSize=12;" edge="1" parent="31">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="118" y="100" as="sourcePoint"/>
-                        <mxPoint x="118" y="160" as="targetPoint"/>
+                <mxCell id="55" value="CONTINUE/[COMBINED]" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="54" vertex="1" connectable="0">
+                    <mxGeometry x="-0.5012" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
                     </mxGeometry>
+                </mxCell>
+                <mxCell id="31" value="COMBINIG DATA" style="shape=mxgraph.sysml.compState;align=left;verticalAlign=top;spacingTop=-3;spacingLeft=18;strokeWidth=1;recursiveResize=0;fillColor=none;" parent="14" vertex="1">
+                    <mxGeometry x="212" y="180" width="300" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="" style="shape=ellipse;html=1;fillColor=none;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;" parent="31" vertex="1">
+                    <mxGeometry x="20" y="70" width="20" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="31" source="34" target="40" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="34" value="ADDING NEWDATA" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;shape=rect;html=1;rounded=1;whiteSpace=wrap;align=center;" parent="31" vertex="1">
+                    <mxGeometry x="78" y="60" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;edgeStyle=none;html=1;endArrow=open;endSize=12;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="31" source="32" target="34" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="118" y="130" as="sourcePoint"/>
+                        <mxPoint x="118" y="160" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="40" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;" parent="31" vertex="1">
+                    <mxGeometry x="238" y="65" width="30" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="MERGING DATA" style="strokeColor=inherit;fillColor=inherit;gradientColor=inherit;shape=rect;html=1;rounded=1;whiteSpace=wrap;align=center;" parent="14" vertex="1">
+                    <mxGeometry x="470" y="120" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="" style="shape=mxgraph.sysml.actFinal;html=1;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;verticalAlign=top;fillColor=none;" parent="3" vertex="1">
+                    <mxGeometry x="1010" y="390" width="40" height="40" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
